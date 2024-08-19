@@ -1,0 +1,47 @@
+buildscript {
+  repositories {
+    google()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+    maven {
+      url "https://jitpack.io"
+    }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:7.3.0-alpha07'
+    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.18.0'
+    def appCenterSdkVersion = '5.0.4'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+    maven {
+      url "https://jitpack.io"
+    }
+  }
+}
+
+ext {
+  minSdkVersion = 14
+  targetSdkVersion = 30
+  compileSdkVersion = 31
+  sourceCompatibilityVersion = JavaVersion.VERSION_11
+  targetCompatibilityVersion = JavaVersion.VERSION_11
+}
+
+ext.deps = [
+        // Test dependencies
+        androidXCore       : 'androidx.core:core:1.9.0-alpha01',
+        junit              : 'junit:junit:4.13.2',
+        robolectric        : 'org.robolectric:robolectric:4.7.3',
+        intellijannotations: 'org.jetbrains:annotations:16.0.2',
+        truth              : 'com.google.truth:truth:1.0'
+]
